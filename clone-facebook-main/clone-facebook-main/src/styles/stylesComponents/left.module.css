@@ -1,0 +1,45 @@
+.bodyLeft {
+    position: fixed;
+
+    margin-top: 77px;
+    margin-left: 20px;
+}
+
+.profile {
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.profile:hover {
+    background-color: rgb(206, 206, 206);
+    transition: 0.2s;
+}
+
+.profile img{
+    margin-top: 11px;
+    border-radius: 50%;
+    position: fixed;
+}
+
+.profile p {
+    margin-left: 35px;
+}
+
+.icon {
+    height: 30px;
+    display: block;
+}
+
+.bodyLeft li {
+    list-style: none;
+    padding: 5px 9.5em 5px 2px;
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bodyLeft li:hover {
+    background-color: rgb(206, 206, 206);
+    transition: 0.2s;
+}

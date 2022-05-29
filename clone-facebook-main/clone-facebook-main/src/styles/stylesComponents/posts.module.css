@@ -1,0 +1,50 @@
+.txt {
+    position: absolute;
+
+    margin-top: 30em;
+    margin-left: 24em;
+}
+
+.post{
+    width: 37em;
+    height: auto;
+    margin: 0 0 20px 0;
+
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px 10px 10px 10px;
+    word-wrap: break-word;
+}
+
+.profile h4{ 
+    position: absolute;
+    margin: 6px 0 0 3em;
+}
+
+.profile img {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    margin-top: 5px;
+    padding: 0 10px 0 0;
+}
+
+.profile p {
+    color: rgb(80, 80, 80); 
+    position: absolute; 
+    margin-Left: 48px;
+    margin-top: 25px; 
+    font-size: 12px;
+}
+
+.icons {
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 15px 0 15px;
+    transition: 0.3s;
+}
+
+.icons:hover {
+    background-color: rgb(206, 206, 206);
+}

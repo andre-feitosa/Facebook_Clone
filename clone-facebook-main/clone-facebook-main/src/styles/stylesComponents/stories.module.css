@@ -1,0 +1,82 @@
+.stories {
+    position: absolute;
+    display: flex;
+    
+    margin-left: 23em;
+    margin-top: 5em;
+}
+
+.storiesPersons {
+    display: flex;
+    margin-left: 7.5em;
+}
+
+.storieImg {
+    width:7.5em;
+    height:13em;
+    object-fit: cover;
+    
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.storieImg:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.photoImg {
+    height: 40px;
+    width: 40px;
+    margin: 5px 0 0 5px;
+    
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.storieList {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.myStorieimg {
+    border-radius: 15px;
+    width:7.5em;
+    height:13em;
+
+    background-color: white;
+    object-fit: cover;
+    position: absolute;
+}
+
+.myStorie {
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.myStorie:hover {
+    transform: scale(1.1);
+}
+
+.stories p {
+    position: absolute;
+    padding: 15px 0 0 0;
+
+    background-color: white;
+    height: 35px;
+    width: 120px;
+
+    margin-top: 10em;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.iconCircle {
+    margin-top: 140px;
+    margin-left: 40px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 95;
+}
