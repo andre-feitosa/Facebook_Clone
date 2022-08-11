@@ -1,18 +1,16 @@
 import {SearchIcon, HomeIcon, FlagIcon, PlayIcon, ShoppingCartIcon, UserGroupIcon} from '@heroicons/react/outline'
 import {ViewGridIcon, ChatIcon, BellIcon, ChevronDownIcon} from '@heroicons/react/solid'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { selectUser } from '../../redux/user'
+import { replaceUser, selectUser } from '../../redux/user'
 
 import styles from '../../styles/stylesComponents/header.module.css'
-
-interface AppProps {
-    name: ''
-}
 
 function Header() {
 
     const select = useSelector(selectUser)
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -42,7 +40,7 @@ function Header() {
                 <ViewGridIcon className={styles.iconRight}/>
                 <ChatIcon className={styles.iconRight}/>
                 <BellIcon className={styles.iconRight}/>
-                <ChevronDownIcon className={styles.iconRight}/>
+                <ChevronDownIcon className={styles.iconRight} onClick={()=>{dispatch(replaceUser({ pay1: "", pay2: "" }))}}/>
             </div>
             </div>
         </>
