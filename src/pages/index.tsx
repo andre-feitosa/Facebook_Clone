@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { XIcon } from '@heroicons/react/solid'
+import { toast } from 'react-toastify'
 
 import { replaceUser } from '../redux/user'
 
@@ -41,12 +42,18 @@ const Index = () => {
   }
 
   async function login() {
-    dispatch(replaceUser({ pay1: loginName, pay2: loginPassword }))
 
     const listuser = await axios.post('http://localhost:3001/', {
       nameLogin: loginName,
       passwordLogin: loginPassword
     })
+
+    if(listuser.data.id) {
+      dispatch(replaceUser({ pay1: loginName, pay2: loginPassword }))
+      open("http://localhost:3000/home", "_self")
+    } else {
+      toast.error("Nome/Senha esta incorreta!")
+    }
   }
 
   async function cadastro() {
@@ -54,6 +61,13 @@ const Index = () => {
       cadastName: cadastName,
       cadastPassword: cadastPassword
     }).then((res: { status: any })=>cadastState(res.status))
+
+    if(cadast === 200) { 
+      toast.success("Sua conta foi criada com sucesso!") 
+    } else if (cadast === 203) { 
+      toast.error("Este nome ja esta sendo utilizado, tente outro!") 
+    } 
+
   }
 
   return (
@@ -68,9 +82,7 @@ const Index = () => {
 
             <input type="text" name="name" placeholder='Nome' onChange={(ev)=>{loginNameState(ev.target.value)}}/>
             <input type="password" name='password' placeholder='Senha' onChange={(ev: { target: { value: any } })=>{loginPasswordState(ev.target.value)}} />
-            <Link href='/home'>
-              <button type="submit" className={styles.btnLogin} onClick={()=>{login()}}>Entrar</button>
-            </Link>
+            <button type="button" className={styles.btnLogin} onClick={()=>{login()}}>Entrar</button>
             <p style={{color: hiddenVisi}}>Nome/Senha está incorreto !</p>
             <div className={styles.bar}></div>
             <button type="button" className={styles.btnCadast} onClick={()=>{elementCadast();}} >Criar nova conta</button>
@@ -87,12 +99,6 @@ const Index = () => {
             <input type="text" placeholder='Nome' onChange={(ev)=>{cadastNameState(ev.target.value)}} />
             <input type="password" placeholder='Senha' id="" onChange={(ev)=>{cadastPasswordState(ev.target.value)}} />
             <button className={styles.btnCad} onClick={()=>cadastro()}>Cadastre-se</button>
-            {
-              cadast === 200 ? <p style={{color: "green", marginLeft: "100px"}}>Sua conta foi criada!</p> : null
-            }
-            {
-              cadast === 203 ? <p style={{color: "red", marginLeft: "20px"}}>Este nome ja esta sendo utilizado, tente outro!</p> : null
-            }
           </div> 
         : null
         }

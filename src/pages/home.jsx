@@ -167,19 +167,6 @@ function PageHome() {
     )
 }
 
-const Erro = () => {
-    async function returnUser() {
-        if (typeof window !== "undefined") {
-            open('http://localhost:3000/', "_self")
-        }
-    }
-    return (
-        <>
-            <button onClick={()=>{returnUser()}} style={{justifyContent: "center"}}>Fazer o login</button>
-        </>
-    )
-}
-
 const Home = () => {
 
     const [check, checkState] = useState()
@@ -197,7 +184,7 @@ const Home = () => {
     return (
       <>
         {   
-            check == 203 ? <Erro/> : <PageHome/>
+            check == 203 ? open('http://localhost:3000/', "_self") : <PageHome/>
         }
       </>
     )
